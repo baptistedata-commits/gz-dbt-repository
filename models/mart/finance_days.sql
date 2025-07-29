@@ -1,0 +1,3 @@
+SELECT 
+Operational_margin
+FROM int_orders_operational
