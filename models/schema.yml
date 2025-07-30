@@ -46,6 +46,14 @@ sources:
             description: the logistic cost
           - name: <ship_cost>
             description: the cost of shipping
+      - name: facebook
+        identifier: raw_gz_facebook
+      - name: criteo
+        identifier: raw_gz_criteo
+      - name: bing
+        identifier: raw_gz_bing
+      - name: adwords
+        identifier: raw_gz_adwords
 models:
   - name: finance_days
     description: table for the finance team to do basic queries
