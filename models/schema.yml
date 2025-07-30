@@ -46,44 +46,44 @@ sources:
             description: the logistic cost
           - name: <ship_cost>
             description: the cost of shipping
-mart:
-   - name: finance_days
-     description: table for the finance team to do basic queries
-     columns:
-       - name: date_date
-         description: aggregated dates
-         tests:
-           - not_null
-       - name: nb_transactions
-         description: total of transactions
-         tests:
-           - not_null
-       - name: total_revenue
-         description: total of revenue
-         tests:
-           - not_null
-       - name: average_basket
-         description: average basket
-         tests:
-           - not_null
-       - name: Operational_margin
-         description: operational margin
-         tests:
-           - not_null
-       - name: total_purchase_cost
-         description: total purchase cost
-         tests:
-           - not_null
-       - name: total_shipping_fee
-         description: total shipping fee
-         tests:
-           - not_null
-       - name: total_logcost
-         description: total logcost
-         tests:
-           - not_null
-       - name: total_products_sold
-         description: total products sold
-         tests:
-           - not_null
+models:
+  - name: finance_days
+    description: table for the finance team to do basic queries
+    columns:
+      - name: date_date
+        description: aggregated dates
+        tests:
+          - not_null
+      - name: nb_transactions
+        description: total of transactions
+        tests:
+          - not_null
+      - name: total_revenue
+        description: total of revenue
+        tests:
+          - not_null
+      - name: average_basket
+        description: average basket
+        tests:
+          - not_null
+      - name: Operational_margin
+        description: operational margin
+        tests:
+          - not_null
+      - name: total_purchase_cost
+        description: total purchase cost
+        tests:
+          - not_null
+      - name: total_shipping_fee
+        description: total shipping fee
+        tests:
+          - not_null
+      - name: total_logcost
+        description: total logcost
+        tests:
+          - not_null
+      - name: total_products_sold
+        description: total products sold
+        tests:
+          - not_null
    
