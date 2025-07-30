@@ -1,0 +1,89 @@
+
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    description: dataset of Greenweez
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: sales of Greenweez / we have on row per product_id found in each orders_id
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+        freshness:
+          warn_after: {count: 90, period: day}
+        columns:
+          - name: <date_date>
+            description: the sales dates
+          - name: <orders_id>
+            description: the orders id
+          - name: <products_id>
+            description: the products id
+          - name: <revenue>
+            description: the revenue
+          - name: <quantity>
+            description: the quantity
+      - name: product
+        identifier: raw_gz_product
+        description: products of Greenweez / we have on row the product_id and their prices
+        columns:
+          - name: <products_id>
+            description: the products id
+          - name: <purchase_price>
+            description: the products prices
+      - name: ship
+        identifier: raw_gz_ship
+        description: shipping of Greenweez / we have on row the orders_id and their costs
+        tests:
+           - unique: 
+               column_name: "orders_id"
+        columns:
+          - name: <orders_id>
+            description: the orders id
+          - name: <shipping_fee>
+            description: the shipping fees
+          - name: <logcost>
+            description: the logistic cost
+          - name: <ship_cost>
+            description: the cost of shipping
+models:
+  - name: finance_days
+    description: table for the finance team to do basic queries
+    columns:
+      - name: date_date
+        description: aggregated dates
+        tests:
+          - not_null
+      - name: nb_transactions
+        description: total of transactions
+        tests:
+          - not_null
+      - name: total_revenue
+        description: total of revenue
+        tests:
+          - not_null
+      - name: average_basket
+        description: average basket
+        tests:
+          - not_null
+      - name: Operational_margin
+        description: operational margin
+        tests:
+          - not_null
+      - name: total_purchase_cost
+        description: total purchase cost
+        tests:
+          - not_null
+      - name: total_shipping_fee
+        description: total shipping fee
+        tests:
+          - not_null
+      - name: total_logcost
+        description: total logcost
+        tests:
+          - not_null
+      - name: total_products_sold
+        description: total products sold
+        tests:
+          - not_null
+   
